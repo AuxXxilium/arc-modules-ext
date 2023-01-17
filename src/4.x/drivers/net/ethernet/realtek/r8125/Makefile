@@ -165,45 +165,18 @@ else
 	)
 
 .PHONY: all
-all: print_vars clean modules install
-
-print_vars:
-	@echo
-	@echo "CC: " $(CC)
-	@echo "CCVERSION: " $(CCVERSION)
-	@echo "KERNEL_GCC_VERSION: " $(KERNEL_GCC_VERSION)
-	@echo "KVER: " $(KVER)
-	@echo "KMAJ: " $(KMAJ)
-	@echo "KMIN: " $(KMIN)
-	@echo "KREV: " $(KREV)
-	@echo "BASEDIR: " $(BASEDIR)
-	@echo "DRIVERDIR: " $(DRIVERDIR)
-	@echo "PWD: " $(PWD)
-	@echo "RTKDIR: " $(RTKDIR)
-	@echo
+all: clean modules install
 
 .PHONY:modules
 modules:
-#ifeq ($(call kver_ge,5,0,0),1)
-	$(MAKE) -C $(KERNELDIR) M=$(PWD) modules
-#else
-#	$(MAKE) -C $(KERNELDIR) SUBDIRS=$(PWD) modules
-#endif
+$(MAKE) -C $(KERNELDIR) M=$(PWD) modules
 
 .PHONY:clean
 clean:
-#ifeq ($(call kver_ge,5,0,0),1)
-	$(MAKE) -C $(KERNELDIR) M=$(PWD) clean
-#else
-#	$(MAKE) -C $(KERNELDIR) SUBDIRS=$(PWD) clean
-#endif
+$(MAKE) -C $(KERNELDIR) M=$(PWD) clean
 
 .PHONY:install
 install:
-#ifeq ($(call kver_ge,5,0,0),1)
-	$(MAKE) -C $(KERNELDIR) M=$(PWD) INSTALL_MOD_DIR=$(RTKDIR) modules_install
-#else
-#	$(MAKE) -C $(KERNELDIR) SUBDIRS=$(PWD) INSTALL_MOD_DIR=$(RTKDIR) modules_install
-#endif
+$(MAKE) -C $(KERNELDIR) M=$(PWD) INSTALL_MOD_DIR=$(RTKDIR) modules_install
 
 endif
