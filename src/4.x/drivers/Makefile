@@ -39,7 +39,7 @@ obj-y				+= video/
 # SOC specific infrastructure drivers.
 #obj-y				+= soc/
 
-obj-$(CONFIG_VIRTIO)		+= virtio/
+obj-y		+= virtio/
 #obj-$(CONFIG_XEN)		+= xen/
 
 # regulators early, since some subsystems rely on them to initialize
@@ -73,7 +73,7 @@ obj-y				+= gpu/
 #obj-$(CONFIG_NUBUS)		+= nubus/
 #obj-y				+= macintosh/
 #obj-$(CONFIG_IDE)		+= ide/
-obj-$(CONFIG_SCSI)		+= scsi/
+obj-y		+= scsi/
 #obj-y				+= nvme/
 #ifeq ($(CONFIG_SYNO_SMBUS_HDD_POWERCTL), y)
 #obj-y				+= i2c/
@@ -85,7 +85,6 @@ obj-$(CONFIG_SCSI)		+= scsi/
 #obj-$(CONFIG_SPMI)		+= spmi/
 #obj-y				+= hsi/
 #ifneq ($(CONFIG_SYNO_LSP_ARMADA_16_12), y)
-obj-y				+= net/
 #endif
 #obj-$(CONFIG_ATM)		+= atm/
 #obj-$(CONFIG_FUSION)		+= message/
@@ -111,7 +110,7 @@ obj-y				+= net/
 obj-$(CONFIG_SERIO)		+= input/serio/
 #obj-$(CONFIG_GAMEPORT)		+= input/gameport/
 obj-$(CONFIG_INPUT)		+= input/
-obj-$(CONFIG_RTC_LIB)		+= rtc/
+obj-y		+= rtc/
 #ifneq ($(CONFIG_SYNO_SMBUS_HDD_POWERCTL), y)
 #obj-y				+= i2c/
 #endif
@@ -120,7 +119,7 @@ obj-$(CONFIG_RTC_LIB)		+= rtc/
 #obj-$(CONFIG_PTP_1588_CLOCK)	+= ptp/
 #obj-$(CONFIG_W1)		+= w1/
 #obj-$(CONFIG_POWER_SUPPLY)	+= power/
-obj-$(CONFIG_HWMON)		+= hwmon/
+obj-y		+= hwmon/
 #obj-$(CONFIG_THERMAL)		+= thermal/
 #obj-$(CONFIG_WATCHDOG)		+= watchdog/
 #obj-$(CONFIG_MD)		+= md/
@@ -130,7 +129,7 @@ obj-$(CONFIG_HWMON)		+= hwmon/
 #obj-$(CONFIG_EDAC)		+= edac/
 #obj-$(CONFIG_EISA)		+= eisa/
 #obj-y				+= lguest/
-obj-$(CONFIG_CPU_FREQ)		+= cpufreq/
+obj-y		+= cpufreq/
 #obj-$(CONFIG_CPU_IDLE)		+= cpuidle/
 #obj-y				+= mmc/
 #obj-$(CONFIG_MEMSTICK)		+= memstick/

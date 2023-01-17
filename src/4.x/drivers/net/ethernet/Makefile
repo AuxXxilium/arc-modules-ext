@@ -15,11 +15,11 @@
 #obj-$(CONFIG_NET_XGENE) += apm/
 #obj-$(CONFIG_NET_VENDOR_APPLE) += apple/
 #obj-$(CONFIG_NET_VENDOR_ARC) += arc/
-obj-$(CONFIG_NET_VENDOR_ATHEROS) += atheros/
+obj-y += atheros/
 #obj-$(CONFIG_NET_VENDOR_AURORA) += aurora/
 #obj-$(CONFIG_NET_CADENCE) += cadence/
 #obj-$(CONFIG_NET_BFIN) += adi/
-obj-$(CONFIG_NET_VENDOR_BROADCOM) += broadcom/
+obj-y += broadcom/
 #obj-$(CONFIG_NET_VENDOR_BROCADE) += brocade/
 #obj-$(CONFIG_NET_CALXEDA_XGMAC) += calxeda/
 #obj-$(CONFIG_NET_VENDOR_CAVIUM) += cavium/
@@ -31,7 +31,7 @@ obj-$(CONFIG_NET_VENDOR_BROADCOM) += broadcom/
 #obj-$(CONFIG_DNET) += dnet.o
 #obj-$(CONFIG_NET_VENDOR_DEC) += dec/
 #obj-$(CONFIG_NET_VENDOR_DLINK) += dlink/
-obj-$(CONFIG_NET_VENDOR_EMULEX) += emulex/
+obj-y += emulex/
 #obj-$(CONFIG_NET_VENDOR_EZCHIP) += ezchip/
 #obj-$(CONFIG_NET_VENDOR_EXAR) += neterion/
 #obj-$(CONFIG_NET_VENDOR_FARADAY) += faraday/
@@ -41,7 +41,7 @@ obj-$(CONFIG_NET_VENDOR_EMULEX) += emulex/
 #obj-$(CONFIG_NET_VENDOR_HP) += hp/
 #obj-$(CONFIG_NET_VENDOR_IBM) += ibm/
 #ifdef CONFIG_SYNO_LSP_ARMADA_17_10
-obj-$(CONFIG_NET_VENDOR_MARVELL) += marvell/
+obj-y += marvell/
 #else
 #ifdef CONFIG_SYNO_LSP_ARMADA_17_06_01
 #obj-$(CONFIG_NET_VENDOR_MARVELL) += marvell_syno/
@@ -49,13 +49,13 @@ obj-$(CONFIG_NET_VENDOR_MARVELL) += marvell/
 #obj-$(CONFIG_NET_VENDOR_MARVELL) += marvell_deprecated/
 #endif # CONFIG_SYNO_LSP_ARMADA_17_06_01
 #endif # CONFIG_SYNO_LSP_ARMADA_17_10
-obj-$(CONFIG_NET_VENDOR_INTEL) += intel/
+obj-y += intel/
 #obj-$(CONFIG_NET_VENDOR_I825XX) += i825xx/
 #obj-$(CONFIG_NET_VENDOR_XSCALE) += xscale/
 #obj-$(CONFIG_JME) += jme.o
 #obj-$(CONFIG_KORINA) += korina.o
 #obj-$(CONFIG_LANTIQ_ETOP) += lantiq_etop.o
-obj-$(CONFIG_NET_VENDOR_MELLANOX) += mellanox/
+obj-y += mellanox/
 #obj-$(CONFIG_NET_VENDOR_MICREL) += micrel/
 #obj-$(CONFIG_NET_VENDOR_MICROCHIP) += microchip/
 #obj-$(CONFIG_NET_VENDOR_MOXART) += moxa/
@@ -73,7 +73,7 @@ obj-$(CONFIG_NET_VENDOR_MELLANOX) += mellanox/
 #obj-$(CONFIG_NET_VENDOR_PASEMI) += pasemi/
 #obj-$(CONFIG_NET_VENDOR_QLOGIC) += qlogic/
 #obj-$(CONFIG_NET_VENDOR_QUALCOMM) += qualcomm/
-obj-$(CONFIG_NET_VENDOR_REALTEK) += realtek/
+obj-y += realtek/
 #obj-$(CONFIG_NET_VENDOR_RENESAS) += renesas/
 #obj-$(CONFIG_NET_VENDOR_RDC) += rdc/
 #obj-$(CONFIG_NET_VENDOR_ROCKER) += rocker/
