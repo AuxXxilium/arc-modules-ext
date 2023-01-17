@@ -15,17 +15,17 @@ while read PLATFORM KVER; do
   [ -n "$1" -a "${PLATFORM}" != "$1" ] && continue
   DIR="${KVER:0:1}.x"
   [ ! -d "${PWD}/${DIR}" ] && continue
-  mkdir -p "${PWD}/../${PLATFORM}-${KVER}-temp"
+  mkdir -p "/tmp/${PLATFORM}-${KVER}"
   #docker run --rm -t -v "${PWD}/${1}/${DIR}":/input -v "${PWD}/../${PLATFORM}-${KVER}":/output \
   #  fbelavenuto/syno-toolkit:${PLATFORM}-${TOOLKIT_VER} compile-module
-  docker run -u `id -u` --rm -t -v "${PWD}/${DIR}":/input -v "${PWD}/../${PLATFORM}-${KVER}-temp":/output \
+  docker run -u `id -u` --rm -t -v "${PWD}/${DIR}":/input -v "/tmp/${PLATFORM}-${KVER}":/output \
     fbelavenuto/syno-compiler:${TOOLKIT_VER} compile-module ${PLATFORM}
-  for M in `ls ${PWD}/../${PLATFORM}-${KVER}-temp`; do
+  for M in `ls /tmp/${PLATFORM}-${KVER}`; do
     [ -f ~/src/pats/modules/${PLATFORM}/$M ] && \
       # original
       cp ~/src/pats/modules/${PLATFORM}/$M "${PWD}/../${PLATFORM}-${KVER}" || \
       # compiled
-      cp ${PWD}/../${PLATFORM}-${KVER}-temp/$M "${PWD}/../${PLATFORM}-${KVER}"
+      cp /tmp/${PLATFORM}-${KVER}/$M "${PWD}/../${PLATFORM}-${KVER}"
   done
-  rm -rf ${PWD}/../${PLATFORM}-${KVER}-temp
+  rm -rf /tmp/${PLATFORM}-${KVER}
 done < PLATFORMS
