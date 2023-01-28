@@ -4,8 +4,11 @@ set -e
 
 TOOLKIT_VER="7.1"
 
-rm -f PLATFORMS
-curl -sLO "https://github.com/AuxXxilium/arc/raw/main/PLATFORMS"
+if [ -f ../../arpl/PLATFORMS ]; then
+  cp ../../arpl/PLATFORMS PLATFORMS
+else
+  curl -sLO "https://github.com/fbelavenuto/arpl/raw/main/PLATFORMS"
+fi
 
 echo -e "Compiling modules..."
 while read PLATFORM KVER; do
